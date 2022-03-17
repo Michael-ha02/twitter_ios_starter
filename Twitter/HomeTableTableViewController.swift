@@ -17,21 +17,24 @@ class HomeTableTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadTweets()
         // pull to refresh from api
         myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
         tableView.refreshControl = myRefreshControl
-        
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 150
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadTweets()
     }
 
     // load everything
     @objc func loadTweets() {
         
-        
         numberofTweet = 20
         let myUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         let myParams = ["count": numberofTweet]
-        
         
         
         TwitterAPICaller.client?.getDictionariesRequest(url: myUrl, parameters: myParams, success: { (tweets: [NSDictionary]) in
@@ -98,6 +101,7 @@ class HomeTableTableViewController: UITableViewController {
         cell.userNameLabel.text = user["name"] as? String
         cell.contentViewLabel.text = tweetArray[indexPath.row]["text"] as? String
         
+//        cell.timeLabel.text = getRelativeTime(timeString: (tweetArray[indexPath.row]["created_at"] as? String)!)
         // how to get image
         let imageURL = URL(string: (user["profile_image_url_https"] as? String)!)
         let data = try? Data(contentsOf: imageURL!)
@@ -105,6 +109,9 @@ class HomeTableTableViewController: UITableViewController {
         if let imageData = data {
             cell.profileImageView.image = UIImage(data: imageData)
         }
+        cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
+        cell.tweetID = tweetArray[indexPath.row]["id"] as! Int
+        cell.setRetweeted(tweetArray[indexPath.row]["retweeted"] as! Bool)
         
         return cell
     }
