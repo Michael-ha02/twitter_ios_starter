@@ -1,27 +1,27 @@
-# Project 3 - Twitter 
 
-Twitter is a basic twitter app to read your tweets.
 
-Time spent: 5hours spent in total
+# Twitter - Part II
+
+This is a basic twitter app to view, compose, favorite, and retweet tweets.
+
+Time spent: 5 hours spent in total
 
 ## User Stories
 
-The following **required** functionality is completed:
+The following 3 functionality is completed:
 
-- [ ] User sees app icon in home screen and styled launch screen. (1pt)
-- [ ] User can log in. (1pt)
-- [ ] User can log out. (1pt)
-- [ ] User stays logged in across restarts. (1pt)
-- [ ] User can view tweets with the user profile picture, username, and tweet text. (6pts)
+- [ ] User can compose a tweet. (4pts)
+- [ ] User can favorite a tweet. (4pts)
+- [ ] User can retweet a tweet. (2pts)
 
-The following **bonus** features are implemented:
+The following 0 features are implemented:
 
-- [ ] User can pull to refresh. (1pt)
-- [ ] User can load past tweets infinitely. (2pts)
+- [ ] When composing a tweet, user sees a countdown for the number of characters remaining for the tweet (out of 280) (2pts)
+- [ ] User can view their profile in a profile tab. (3pts)
+- [ ] User sees embedded images in tweet if available. (3pts)
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/k9Z71sVK9z.gif' title='Twitter Part 1' width='' alt='Video Walkthrough' />
-
+<img src='http://g.recordit.co/VM96oFZNhs.gif' title='Twitter Part II' width='' alt='Twitter Part II' />
